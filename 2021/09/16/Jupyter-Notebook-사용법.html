@@ -1,0 +1,2089 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Jupyter Notebook 사용법 | fastpages</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Jupyter Notebook 사용법" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<meta property="og:description" content="An easy to use blogging platform with support for Jupyter Notebooks." />
+<link rel="canonical" href="https://zeroth-choi.github.io/machine-learning/2021/09/16/Jupyter-Notebook-%EC%82%AC%EC%9A%A9%EB%B2%95.html" />
+<meta property="og:url" content="https://zeroth-choi.github.io/machine-learning/2021/09/16/Jupyter-Notebook-%EC%82%AC%EC%9A%A9%EB%B2%95.html" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-09-16T00:00:00-05:00" />
+<script type="application/ld+json">
+{"datePublished":"2021-09-16T00:00:00-05:00","url":"https://zeroth-choi.github.io/machine-learning/2021/09/16/Jupyter-Notebook-%EC%82%AC%EC%9A%A9%EB%B2%95.html","@type":"BlogPosting","headline":"Jupyter Notebook 사용법","dateModified":"2021-09-16T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://zeroth-choi.github.io/machine-learning/2021/09/16/Jupyter-Notebook-%EC%82%AC%EC%9A%A9%EB%B2%95.html"},"description":"An easy to use blogging platform with support for Jupyter Notebooks.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/machine-learning/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://zeroth-choi.github.io/machine-learning/feed.xml" title="fastpages" /><link rel="shortcut icon" type="image/x-icon" href="/machine-learning/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/machine-learning/">fastpages</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/machine-learning/about/">About Me</a><a class="page-link" href="/machine-learning/search/">Search</a><a class="page-link" href="/machine-learning/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Jupyter Notebook 사용법</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-09-16T00:00:00-05:00" itemprop="datePublished">
+        Sep 16, 2021
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      18 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/zeroth-choi/machine-learning/tree/master/_notebooks/Jupyter Notebook 사용법.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/machine-learning/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/zeroth-choi/machine-learning/master?filepath=_notebooks%2FJupyter+Notebook+%EC%82%AC%EC%9A%A9%EB%B2%95.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/machine-learning/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/zeroth-choi/machine-learning/blob/master/_notebooks/Jupyter Notebook 사용법.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/machine-learning/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/Jupyter Notebook 사용법.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><h1>Table of Contents<span class="tocSkip"></span></h1></p>
+<div class="toc"><ul class="toc-item"><li><span><a href="#Jupyter-Notebook명령어" data-toc-modified-id="Jupyter-Notebook명령어-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Jupyter Notebook명령어</a></span><ul class="toc-item"><li><span><a href="#Jupyter-Notebook-홈-화면-명령어" data-toc-modified-id="Jupyter-Notebook-홈-화면-명령어-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Jupyter Notebook 홈 화면 명령어</a></span></li><li><span><a href="#In-order-to-list-all-installed-modules,-run-in-Anaconda-Prompt-:" data-toc-modified-id="In-order-to-list-all-installed-modules,-run-in-Anaconda-Prompt-:-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>In order to list all installed modules, run in Anaconda Prompt :</a></span></li><li><span><a href="#Command-mode" data-toc-modified-id="Command-mode-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Command mode</a></span></li><li><span><a href="#Edit-mode" data-toc-modified-id="Edit-mode-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Edit mode</a></span></li><li><span><a href="#공용-단축키-(현재-Notebook에-대하여)" data-toc-modified-id="공용-단축키-(현재-Notebook에-대하여)-1.5"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>공용 단축키 (현재 Notebook에 대하여)</a></span></li><li><span><a href="#shell-(명령-프롬프트)-이용" data-toc-modified-id="shell-(명령-프롬프트)-이용-1.6"><span class="toc-item-num">1.6&nbsp;&nbsp;</span>shell (명령 프롬프트) 이용</a></span></li></ul></li><li><span><a href="#Markdown-명령어" data-toc-modified-id="Markdown-명령어-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Markdown 명령어</a></span><ul class="toc-item"><li><span><a href="#heading" data-toc-modified-id="heading-2.1"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>heading</a></span></li><li><span><a href="#줄바꿈" data-toc-modified-id="줄바꿈-2.2"><span class="toc-item-num">2.2&nbsp;&nbsp;</span>줄바꿈</a></span></li><li><span><a href="#폰트" data-toc-modified-id="폰트-2.3"><span class="toc-item-num">2.3&nbsp;&nbsp;</span>폰트</a></span></li><li><span><a href="#가로줄" data-toc-modified-id="가로줄-2.4"><span class="toc-item-num">2.4&nbsp;&nbsp;</span>가로줄</a></span></li><li><span><a href="#인용" data-toc-modified-id="인용-2.5"><span class="toc-item-num">2.5&nbsp;&nbsp;</span>인용</a></span></li><li><span><a href="#목록" data-toc-modified-id="목록-2.6"><span class="toc-item-num">2.6&nbsp;&nbsp;</span>목록</a></span></li><li><span><a href="#링크와-이미지" data-toc-modified-id="링크와-이미지-2.7"><span class="toc-item-num">2.7&nbsp;&nbsp;</span>링크와 이미지</a></span></li><li><span><a href="#수식" data-toc-modified-id="수식-2.8"><span class="toc-item-num">2.8&nbsp;&nbsp;</span>수식</a></span></li><li><span><a href="#표" data-toc-modified-id="표-2.9"><span class="toc-item-num">2.9&nbsp;&nbsp;</span>표</a></span></li><li><span><a href="#코드" data-toc-modified-id="코드-2.10"><span class="toc-item-num">2.10&nbsp;&nbsp;</span>코드</a></span></li></ul></li><li><span><a href="#객체" data-toc-modified-id="객체-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>객체</a></span><ul class="toc-item"><li><span><a href="#객체" data-toc-modified-id="객체-3.1"><span class="toc-item-num">3.1&nbsp;&nbsp;</span>객체</a></span></li><li><span><a href="#객체의-내용(DocString)" data-toc-modified-id="객체의-내용(DocString)-3.2"><span class="toc-item-num">3.2&nbsp;&nbsp;</span>객체의 내용(DocString)</a></span></li><li><span><a href="#함수의--docstring" data-toc-modified-id="함수의--docstring-3.3"><span class="toc-item-num">3.3&nbsp;&nbsp;</span>함수의  docstring</a></span></li><li><span><a href="#함수의-소스-코드" data-toc-modified-id="함수의-소스-코드-3.4"><span class="toc-item-num">3.4&nbsp;&nbsp;</span>함수의 소스 코드</a></span></li><li><span><a href="#wildcard(*)로-객체-검색하기" data-toc-modified-id="wildcard(*)로-객체-검색하기-3.5"><span class="toc-item-num">3.5&nbsp;&nbsp;</span>wildcard(*)로 객체 검색하기</a></span></li><li><span><a href="#Tab-키를-이용한-자동-완성" data-toc-modified-id="Tab-키를-이용한-자동-완성-3.6"><span class="toc-item-num">3.6&nbsp;&nbsp;</span>Tab 키를 이용한 자동 완성</a></span></li><li><span><a href="#변수의-상태" data-toc-modified-id="변수의-상태-3.7"><span class="toc-item-num">3.7&nbsp;&nbsp;</span>변수의 상태</a></span></li></ul></li><li><span><a href="#코드-저장" data-toc-modified-id="코드-저장-4"><span class="toc-item-num">4&nbsp;&nbsp;</span>코드 저장</a></span><ul class="toc-item"><li><span><a href="#한글을-포함하는-Jupyter-notebook-전체를-PDF-파일로-저장하기" data-toc-modified-id="한글을-포함하는-Jupyter-notebook-전체를-PDF-파일로-저장하기-4.1"><span class="toc-item-num">4.1&nbsp;&nbsp;</span>한글을 포함하는 Jupyter notebook 전체를 PDF 파일로 저장하기</a></span></li><li><span><a href="#Jupyter-notebook-전체를-python-script로-저장하기" data-toc-modified-id="Jupyter-notebook-전체를-python-script로-저장하기-4.2"><span class="toc-item-num">4.2&nbsp;&nbsp;</span>Jupyter notebook 전체를 python script로 저장하기</a></span></li><li><span><a href="#save-several-cells-as-a-python-script" data-toc-modified-id="save-several-cells-as-a-python-script-4.3"><span class="toc-item-num">4.3&nbsp;&nbsp;</span>save several cells as a python script</a></span></li><li><span><a href="#python-script를-Jupyter-notebook으로-변환하기" data-toc-modified-id="python-script를-Jupyter-notebook으로-변환하기-4.4"><span class="toc-item-num">4.4&nbsp;&nbsp;</span>python script를 Jupyter notebook으로 변환하기</a></span></li><li><span><a href="#script-file의-전체-내용을-한-셀에-불러오기" data-toc-modified-id="script-file의-전체-내용을-한-셀에-불러오기-4.5"><span class="toc-item-num">4.5&nbsp;&nbsp;</span>script file의 전체 내용을 한 셀에 불러오기</a></span></li><li><span><a href="#Jupyter-notebooks를-합치기" data-toc-modified-id="Jupyter-notebooks를-합치기-4.6"><span class="toc-item-num">4.6&nbsp;&nbsp;</span>Jupyter notebooks를 합치기</a></span></li></ul></li><li><span><a href="#실행" data-toc-modified-id="실행-5"><span class="toc-item-num">5&nbsp;&nbsp;</span>실행</a></span><ul class="toc-item"><li><span><a href="#매직-명령어" data-toc-modified-id="매직-명령어-5.1"><span class="toc-item-num">5.1&nbsp;&nbsp;</span>매직 명령어</a></span></li><li><span><a href="#명령어의-실행-시간-측정하기(여러-번-실행하여-빨랐던-몇-번에-대한-평균)" data-toc-modified-id="명령어의-실행-시간-측정하기(여러-번-실행하여-빨랐던-몇-번에-대한-평균)-5.2"><span class="toc-item-num">5.2&nbsp;&nbsp;</span>명령어의 실행 시간 측정하기(여러 번 실행하여 빨랐던 몇 번에 대한 평균)</a></span></li><li><span><a href="#스크립트-파일-실행-(automagic이-활성화-되어-있으면-%-생략-가능)" data-toc-modified-id="스크립트-파일-실행-(automagic이-활성화-되어-있으면-%-생략-가능)-5.3"><span class="toc-item-num">5.3&nbsp;&nbsp;</span>스크립트 파일 실행 (automagic이 활성화 되어 있으면 % 생략 가능)</a></span></li><li><span><a href="#오류가-발생한-경우에-사후-분석-디버깅(pdb)" data-toc-modified-id="오류가-발생한-경우에-사후-분석-디버깅(pdb)-5.4"><span class="toc-item-num">5.4&nbsp;&nbsp;</span>오류가 발생한 경우에 사후 분석 디버깅(pdb)</a></span></li><li><span><a href="#스크립트에-디버거(pdb)-실행" data-toc-modified-id="스크립트에-디버거(pdb)-실행-5.5"><span class="toc-item-num">5.5&nbsp;&nbsp;</span>스크립트에 디버거(pdb) 실행</a></span></li></ul></li></ul></div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>참고: <a href="https://jupyter.brynmawr.edu/services/public/dblank/Jupyter%20Notebook%20Users%20Manual.ipynb">Jupyter Notebook Users Manual</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Jupyter-Notebook&#47749;&#47161;&#50612;">Jupyter Notebook&#47749;&#47161;&#50612;<a class="anchor-link" href="#Jupyter-Notebook&#47749;&#47161;&#50612;"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Jupyter-Notebook-&#54856;-&#54868;&#47732;-&#47749;&#47161;&#50612;">Jupyter Notebook &#54856; &#54868;&#47732; &#47749;&#47161;&#50612;<a class="anchor-link" href="#Jupyter-Notebook-&#54856;-&#54868;&#47732;-&#47749;&#47161;&#50612;"> </a></h3><table>
+<thead><tr>
+<th style="text-align:center">키</th>
+<th style="text-align:left">설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">New &gt; Python 3</td>
+<td style="text-align:left">Python 3 notebook 생성</td>
+</tr>
+<tr>
+<td style="text-align:center">New &gt; Text Folder</td>
+<td style="text-align:left">folder 생성</td>
+</tr>
+<tr>
+<td style="text-align:center">New &gt; Text File</td>
+<td style="text-align:left">script 파일 생성</td>
+</tr>
+<tr>
+<td style="text-align:center">New &gt; Terminal</td>
+<td style="text-align:left">Anaconda 프롬프트 열기</td>
+</tr>
+<tr>
+<td style="text-align:center">Quit</td>
+<td style="text-align:left">서버 종료</td>
+</tr>
+<tr>
+<td style="text-align:center">Logout</td>
+<td style="text-align:left">(PW 필요)</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="In-order-to-list-all-installed-modules,-run-in-Anaconda-Prompt-:">In order to list all installed modules, run in Anaconda Prompt :<a class="anchor-link" href="#In-order-to-list-all-installed-modules,-run-in-Anaconda-Prompt-:"> </a></h3><p>pip list</p>
+<p>or</p>
+<p>pip freeze</p>
+<p>or</p>
+<p>conda list</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>conda list
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre># packages in environment at C:\ide\anaconda3:
+#
+# Name                    Version                   Build  Channel
+_anaconda_depends         2020.07                  py38_0  
+_ipyw_jlab_nb_ext_conf    0.1.0                    py38_0  
+_r-mutex                  1.0.0               anacondar_1  
+absl-py                   0.11.0                   pypi_0    pypi
+alabaster                 0.7.12                     py_0  
+anaconda                  custom                   py38_1  
+anaconda-client           1.7.2                    py38_0  
+anaconda-navigator        1.10.0                   py38_0  
+anaconda-project          0.9.1              pyhd3eb1b0_1  
+appdirs                   1.4.4                      py_0  
+argh                      0.26.2                   py38_0  
+argon2-cffi               20.1.0           py38he774522_1  
+asn1crypto                1.4.0                      py_0  
+astroid                   2.4.2                    py38_0  
+astropy                   4.2              py38h2bbff1b_0  
+astunparse                1.6.3                    pypi_0    pypi
+async_generator           1.10                       py_0  
+atomicwrites              1.4.0                      py_0  
+attrs                     20.3.0             pyhd3eb1b0_0  
+autopep8                  1.5.4                      py_0  
+babel                     2.9.0              pyhd3eb1b0_0  
+backcall                  0.2.0                      py_0  
+backports                 1.0                pyhd3eb1b0_2  
+backports.functools_lru_cache 1.6.1              pyhd3eb1b0_0  
+backports.shutil_get_terminal_size 1.0.0              pyhd3eb1b0_3  
+backports.tempfile        1.0                pyhd3eb1b0_1  
+backports.weakref         1.0.post1                  py_1  
+bcrypt                    3.2.0            py38he774522_0  
+beautifulsoup4            4.9.3              pyha847dfd_0  
+bitarray                  1.6.3            py38h2bbff1b_1  
+bkcharts                  0.2                      py38_0  
+black                     19.10b0                    py_0  
+blas                      1.0                         mkl  
+bleach                    3.2.3              pyhd3eb1b0_0  
+blosc                     1.20.1               h7bd577a_0  
+bokeh                     2.2.3                    py38_0  
+boto                      2.49.0                   py38_0  
+bottleneck                1.3.2            py38h2a96729_1  
+brotli                    1.0.9                ha925a31_2  
+brotlipy                  0.7.0           py38h2bbff1b_1003  
+bzip2                     1.0.8                he774522_0  
+ca-certificates           2021.1.19            haa95532_0  
+cachetools                4.2.1                    pypi_0    pypi
+certifi                   2020.12.5        py38haa244fe_1    conda-forge
+cffi                      1.14.4           py38hcd4344a_0  
+chardet                   4.0.0           py38haa95532_1003  
+charls                    2.1.0                h33f27b4_2  
+click                     7.1.2              pyhd3eb1b0_0  
+cloudpickle               1.6.0                      py_0  
+clyent                    1.2.2                    py38_1  
+colorama                  0.4.4              pyhd3eb1b0_0  
+comtypes                  1.1.8           py38haa95532_1002  
+conda                     4.9.2            py38haa244fe_0    conda-forge
+conda-build               3.21.4           py38haa95532_0  
+conda-env                 2.6.0                         1  
+conda-package-handling    1.7.2            py38h76e460a_0  
+conda-verify              3.4.2                      py_1  
+console_shortcut          0.1.1                         4  
+contextlib2               0.6.0.post1                py_0  
+cryptography              3.3.1            py38hcd4344a_0  
+curl                      7.71.1               h2a8f88b_1  
+cycler                    0.10.0                   py38_0  
+cython                    0.29.21          py38hd77b12b_0  
+cytoolz                   0.11.0           py38he774522_0  
+dask                      2021.1.1           pyhd3eb1b0_0  
+dask-core                 2021.1.1           pyhd3eb1b0_0  
+decorator                 4.4.2                      py_0  
+defusedxml                0.6.0                      py_0  
+diff-match-patch          20200713                   py_0  
+distributed               2021.1.1         py38haa95532_1  
+docutils                  0.16                     py38_1  
+entrypoints               0.3                      py38_0  
+et_xmlfile                1.0.1                   py_1001  
+fastcache                 1.1.0            py38he774522_0  
+filelock                  3.0.12             pyhd3eb1b0_1  
+flake8                    3.8.4                      py_0  
+flask                     1.1.2                      py_0  
+flatbuffers               1.12                     pypi_0    pypi
+freetype                  2.10.4               hd328e21_0  
+fsspec                    0.8.3                      py_0  
+future                    0.18.2                   py38_1  
+gast                      0.3.3                    pypi_0    pypi
+get_terminal_size         1.0.0                h38e98db_0  
+gevent                    21.1.1           py38h2bbff1b_1  
+giflib                    5.2.1                h62dcd97_0  
+glob2                     0.7                pyhd3eb1b0_0  
+gmpy2                     2.0.8            py38h7edee0f_3  
+google-auth               1.24.0                   pypi_0    pypi
+google-auth-oauthlib      0.4.2                    pypi_0    pypi
+google-pasta              0.2.0                    pypi_0    pypi
+greenlet                  0.4.17           py38he774522_0  
+grpcio                    1.32.0                   pypi_0    pypi
+h5py                      2.10.0           py38h5e291fa_0  
+hdf5                      1.10.4               h7ebc959_0  
+heapdict                  1.0.1                      py_0  
+html5lib                  1.1                        py_0  
+icc_rt                    2019.0.0             h0cc432a_1  
+icu                       58.2                 ha925a31_3  
+idna                      2.10               pyhd3eb1b0_0  
+imagecodecs               2021.1.11        py38h5da4933_1  
+imageio                   2.9.0                      py_0  
+imagesize                 1.2.0                      py_0  
+importlib-metadata        2.0.0                      py_1  
+importlib_metadata        2.0.0                         1  
+iniconfig                 1.1.1              pyhd3eb1b0_0  
+intel-openmp              2020.2                      254  
+intervaltree              3.1.0                      py_0  
+ipykernel                 5.3.4            py38h5ca1d4c_0  
+ipyparallel               6.3.0                    pypi_0    pypi
+ipython                   7.20.0                   pypi_0    pypi
+ipython_genutils          0.2.0              pyhd3eb1b0_1  
+ipywidgets                7.6.3              pyhd3eb1b0_1  
+isort                     5.6.4                      py_0  
+itsdangerous              1.1.0                      py_0  
+jdcal                     1.4.1                      py_0  
+jedi                      0.17.2           py38haa95532_1  
+jinja2                    2.11.2             pyhd3eb1b0_0  
+joblib                    1.0.0              pyhd3eb1b0_0  
+jpeg                      9b                   hb83a4c4_2  
+json5                     0.9.5                      py_0  
+jsonschema                3.2.0                      py_2  
+jupyter                   1.0.0                    py38_7  
+jupyter-contrib-nbextensions 0.5.1                    pypi_0    pypi
+jupyter-highlight-selected-word 0.2.0                    pypi_0    pypi
+jupyter-latex-envs        1.4.6                    pypi_0    pypi
+jupyter_client            6.1.7                      py_0  
+jupyter_console           6.2.0                      py_0  
+jupyter_contrib_core      0.3.3                      py_2    conda-forge
+jupyter_core              4.7.0            py38haa95532_0  
+jupyter_nbextensions_configurator 0.4.1            py38haa244fe_2    conda-forge
+jupyterlab                2.2.6                      py_0  
+jupyterlab_pygments       0.1.2                      py_0  
+jupyterlab_server         1.2.0                      py_0  
+jupyterlab_widgets        1.0.0              pyhd3eb1b0_1  
+keras                     2.4.3                    pypi_0    pypi
+keras-preprocessing       1.1.2                    pypi_0    pypi
+keyring                   22.0.1           py38haa95532_0  
+kiwisolver                1.3.0            py38hd77b12b_0  
+krb5                      1.18.2               hc04afaa_0  
+lazy-object-proxy         1.4.3            py38h2bbff1b_2  
+lcms2                     2.11                 hc51a39a_0  
+lerc                      2.2.1                hd77b12b_0  
+libaec                    1.0.4                h33f27b4_1  
+libarchive                3.4.2                h5e25573_0  
+libcurl                   7.71.1               h2a8f88b_1  
+libdeflate                1.7                  h2bbff1b_5  
+libiconv                  1.15                 h1df5818_7  
+liblief                   0.10.1               ha925a31_0  
+libllvm9                  9.0.1                h21ff451_0  
+libpng                    1.6.37               h2a8f88b_0  
+libsodium                 1.0.18               h62dcd97_0  
+libspatialindex           1.9.3                h33f27b4_0  
+libssh2                   1.9.0                h7a1dbc1_1  
+libtiff                   4.1.0                h56a325e_1  
+libxml2                   2.9.10               hb89e7f3_3  
+libxslt                   1.1.34               he774522_0  
+libzopfli                 1.0.3                ha925a31_0  
+llvmlite                  0.34.0           py38h1a82afc_4  
+locket                    0.2.1            py38haa95532_1  
+lxml                      4.6.2            py38h9b66d53_0  
+lz4-c                     1.9.3                h2bbff1b_0  
+lzo                       2.10                 he774522_2  
+m2w64-bwidget             1.9.10                        2  
+m2w64-bzip2               1.0.6                         6  
+m2w64-expat               2.1.1                         2  
+m2w64-fftw                3.3.4                         6  
+m2w64-flac                1.3.1                         3  
+m2w64-gcc-libgfortran     5.3.0                         6  
+m2w64-gcc-libs            5.3.0                         7  
+m2w64-gcc-libs-core       5.3.0                         7  
+m2w64-gettext             0.19.7                        2  
+m2w64-gmp                 6.1.0                         2  
+m2w64-gsl                 2.1                           2  
+m2w64-libiconv            1.14                          6  
+m2w64-libjpeg-turbo       1.4.2                         3  
+m2w64-libogg              1.3.2                         3  
+m2w64-libpng              1.6.21                        2  
+m2w64-libsndfile          1.0.26                        2  
+m2w64-libsodium           1.0.10                        2  
+m2w64-libtiff             4.0.6                         2  
+m2w64-libvorbis           1.3.5                         2  
+m2w64-libwinpthread-git   5.0.0.4634.697f757               2  
+m2w64-libxml2             2.9.3                         4  
+m2w64-mpfr                3.1.4                         4  
+m2w64-openblas            0.2.19                        1  
+m2w64-pcre                8.38                          2  
+m2w64-speex               1.2rc2                        3  
+m2w64-speexdsp            1.2rc3                        3  
+m2w64-tcl                 8.6.5                         3  
+m2w64-tk                  8.6.5                         3  
+m2w64-tktable             2.10                          5  
+m2w64-wineditline         2.101                         5  
+m2w64-xz                  5.2.2                         2  
+m2w64-zeromq              4.1.4                         2  
+m2w64-zlib                1.2.8                        10  
+markdown                  3.3.3                    pypi_0    pypi
+markupsafe                1.1.1            py38he774522_0  
+matplotlib                3.3.2                haa95532_0  
+matplotlib-base           3.3.2            py38hba9282a_0  
+mccabe                    0.6.1                    py38_1  
+menuinst                  1.4.16           py38he774522_1  
+mistune                   0.8.4           py38he774522_1000  
+mkl                       2020.2                      256  
+mkl-service               2.3.0            py38h196d8e1_0  
+mkl_fft                   1.2.0            py38h45dec08_0  
+mkl_random                1.1.1            py38h47e9c7a_0  
+mock                      4.0.3              pyhd3eb1b0_0  
+more-itertools            8.6.0              pyhd3eb1b0_0  
+mpc                       1.1.0                h7edee0f_1  
+mpfr                      4.0.2                h62dcd97_1  
+mpir                      3.0.0                hec2e145_1  
+mpmath                    1.1.0                    py38_0  
+msgpack-python            1.0.1            py38h59b6b97_0  
+msys2-conda-epoch         20160418                      1  
+multipledispatch          0.6.0                    py38_0  
+mypy_extensions           0.4.3                    py38_0  
+navigator-updater         0.2.1                    py38_0  
+nbclient                  0.5.1                      py_0  
+nbconvert                 6.0.7                    py38_0  
+nbformat                  5.1.2              pyhd3eb1b0_1  
+nest-asyncio              1.4.3              pyhd3eb1b0_0  
+networkx                  2.5                        py_0  
+nltk                      3.5                        py_0  
+nose                      1.3.7           pyhd3eb1b0_1006  
+notebook                  6.2.0            py38haa95532_0  
+numba                     0.51.2           py38hf9181ef_1  
+numexpr                   2.7.2            py38hcbcaa1e_0  
+numpy                     1.18.5                   pypi_0    pypi
+numpy-base                1.19.2           py38ha3acd2a_0  
+numpydoc                  1.1.0              pyhd3eb1b0_1  
+oauthlib                  3.1.0                    pypi_0    pypi
+olefile                   0.46                       py_0  
+openjpeg                  2.3.0                h5ec785f_1  
+openpyxl                  3.0.6              pyhd3eb1b0_0  
+openssl                   1.1.1j               h2bbff1b_0  
+opt-einsum                3.3.0                    pypi_0    pypi
+packaging                 20.8               pyhd3eb1b0_0  
+pandas                    1.2.1            py38hf11a4ad_0  
+pandoc                    2.11                 h9490d1a_0  
+pandocfilters             1.4.3            py38haa95532_1  
+paramiko                  2.7.2                      py_0  
+parso                     0.7.0                      py_0  
+partd                     1.1.0                      py_0  
+path                      15.0.1           py38haa95532_0  
+path.py                   12.5.0                        0  
+pathlib2                  2.3.5            py38haa95532_2  
+pathspec                  0.7.0                      py_0  
+pathtools                 0.1.2                      py_1  
+patsy                     0.5.1                    py38_0  
+pep8                      1.7.1                    py38_0  
+pexpect                   4.8.0              pyhd3eb1b0_3  
+pickleshare               0.7.5           pyhd3eb1b0_1003  
+pillow                    8.1.0            py38h4fa10fc_0  
+pip                       20.3.3           py38haa95532_0  
+pkginfo                   1.7.0            py38haa95532_0  
+pluggy                    0.13.1                   py38_0  
+ply                       3.11                     py38_0  
+powershell_shortcut       0.0.1                         3  
+prometheus_client         0.9.0              pyhd3eb1b0_0  
+prompt-toolkit            3.0.8                      py_0  
+prompt_toolkit            3.0.8                         0  
+protobuf                  3.14.0                   pypi_0    pypi
+psutil                    5.7.2            py38he774522_0  
+ptyprocess                0.7.0              pyhd3eb1b0_2  
+py                        1.10.0             pyhd3eb1b0_0  
+py-lief                   0.10.1           py38ha925a31_0  
+pyasn1                    0.4.8                    pypi_0    pypi
+pyasn1-modules            0.2.8                    pypi_0    pypi
+pycodestyle               2.6.0                      py_0  
+pycosat                   0.6.3            py38h2bbff1b_0  
+pycparser                 2.20                       py_2  
+pycurl                    7.43.0.6         py38h7a1dbc1_0  
+pydocstyle                5.1.1                      py_0  
+pyerfa                    1.7.1.1          py38h2bbff1b_1  
+pyfirmata                 1.1.0                    pypi_0    pypi
+pyflakes                  2.2.0                      py_0  
+pygments                  2.7.4              pyhd3eb1b0_0  
+pyinputplus               0.2.12                   pypi_0    pypi
+pylint                    2.6.0                    py38_0  
+pyls-black                0.4.6                hd3eb1b0_0  
+pyls-spyder               0.3.0              pyhd3eb1b0_0  
+pynacl                    1.4.0            py38h62dcd97_1  
+pyodbc                    4.0.30           py38ha925a31_0  
+pyopenssl                 20.0.1             pyhd3eb1b0_1  
+pyparsing                 2.4.7              pyhd3eb1b0_0  
+pyqt                      5.9.2            py38ha925a31_4  
+pyreadline                2.1                      py38_1  
+pyrsistent                0.17.3           py38he774522_0  
+pyserial                  3.4                      pypi_0    pypi
+pysimplevalidate          0.2.12                   pypi_0    pypi
+pysocks                   1.7.1            py38haa95532_0  
+pytables                  3.6.1            py38ha5be198_0  
+pytest                    6.2.2            py38haa95532_2  
+python                    3.8.5                h5fd99cc_1  
+python-dateutil           2.8.1                      py_0  
+python-jsonrpc-server     0.4.0                      py_0  
+python-language-server    0.36.2             pyhd3eb1b0_0  
+python-libarchive-c       2.9                pyhd3eb1b0_0  
+python_abi                3.8                      1_cp38    conda-forge
+pytz                      2020.5             pyhd3eb1b0_0  
+pywavelets                1.1.1            py38he774522_2  
+pywin32                   227              py38he774522_1  
+pywin32-ctypes            0.2.0                 py38_1000  
+pywinpty                  0.5.7                    py38_0  
+pyyaml                    5.4.1            py38h2bbff1b_1  
+pyzmq                     20.0.0           py38hd77b12b_1  
+qdarkstyle                2.8.1                      py_0  
+qt                        5.9.7            vc14h73c81de_0  
+qtawesome                 1.0.1                      py_0  
+qtconsole                 4.7.7                      py_0  
+qtpy                      1.9.0                      py_0  
+r-askpass                 1.0                       r36_0    r
+r-assertthat              0.2.1             r36h6115d3f_0    r
+r-backports               1.1.4             r36h6115d3f_0    r
+r-base                    3.6.1                hf18239d_1    r
+r-base64enc               0.1_3             r36h6115d3f_4    r
+r-bh                      1.69.0_1          r36h6115d3f_0    r
+r-boot                    1.3_20            r36h6115d3f_0    r
+r-broom                   0.5.2             r36h6115d3f_0    r
+r-callr                   3.2.0             r36h6115d3f_0    r
+r-caret                   6.0_83            r36h6115d3f_0    r
+r-cellranger              1.1.0             r36h6115d3f_0    r
+r-class                   7.3_15            r36h6115d3f_0    r
+r-cli                     1.1.0             r36h6115d3f_0    r
+r-clipr                   0.6.0             r36h6115d3f_0    r
+r-cluster                 2.0.8             r36h6115d3f_0    r
+r-codetools               0.2_16            r36h6115d3f_0    r
+r-colorspace              1.4_1             r36h6115d3f_0    r
+r-crayon                  1.3.4             r36h6115d3f_0    r
+r-curl                    3.3               r36h6115d3f_0    r
+r-data.table              1.12.2            r36h6115d3f_0    r
+r-dbi                     1.0.0             r36h6115d3f_0    r
+r-dbplyr                  1.4.0             r36h6115d3f_0    r
+r-dichromat               2.0_0             r36h6115d3f_4    r
+r-digest                  0.6.18            r36h6115d3f_0    r
+r-dplyr                   0.8.0.1           r36h6115d3f_0    r
+r-ellipsis                0.1.0             r36h6115d3f_0    r
+r-essentials              3.6.0                     r36_0    r
+r-evaluate                0.13              r36h6115d3f_0    r
+r-fansi                   0.4.0             r36h6115d3f_0    r
+r-forcats                 0.4.0             r36h6115d3f_0    r
+r-foreach                 1.4.4             r36h6115d3f_0    r
+r-foreign                 0.8_71            r36h6115d3f_0    r
+r-formatr                 1.6               r36h6115d3f_0    r
+r-fs                      1.2.7             r36h6115d3f_0    r
+r-generics                0.0.2             r36h6115d3f_0    r
+r-ggplot2                 3.1.1             r36h6115d3f_0    r
+r-glmnet                  2.0_16            r36h6115d3f_0    r
+r-glue                    1.3.1             r36h6115d3f_0    r
+r-gower                   0.2.0             r36h6115d3f_0    r
+r-gtable                  0.3.0             r36h6115d3f_0    r
+r-haven                   2.1.0             r36h6115d3f_0    r
+r-hexbin                  1.27.2            r36h6115d3f_0    r
+r-highr                   0.8               r36h6115d3f_0    r
+r-hms                     0.4.2             r36h6115d3f_0    r
+r-htmltools               0.3.6             r36h6115d3f_0    r
+r-htmlwidgets             1.3               r36h6115d3f_0    r
+r-httpuv                  1.5.1             r36h6115d3f_0    r
+r-httr                    1.4.0             r36h6115d3f_0    r
+r-ipred                   0.9_8             r36h6115d3f_0    r
+r-irdisplay               0.7.0             r36h6115d3f_0    r
+r-irkernel                0.8.15                    r36_0    r
+r-iterators               1.0.10            r36h6115d3f_0    r
+r-jsonlite                1.6               r36h6115d3f_0    r
+r-kernsmooth              2.23_15           r36h6115d3f_4    r
+r-knitr                   1.22              r36h6115d3f_0    r
+r-labeling                0.3               r36h6115d3f_4    r
+r-later                   0.8.0             r36h6115d3f_0    r
+r-lattice                 0.20_38           r36h6115d3f_0    r
+r-lava                    1.6.5             r36h6115d3f_0    r
+r-lazyeval                0.2.2             r36h6115d3f_0    r
+r-lubridate               1.7.4             r36h6115d3f_0    r
+r-magrittr                1.5               r36h6115d3f_4    r
+r-maps                    3.3.0             r36h6115d3f_0    r
+r-markdown                0.9               r36h6115d3f_0    r
+r-mass                    7.3_51.3          r36h6115d3f_0    r
+r-matrix                  1.2_17            r36h6115d3f_0    r
+r-mgcv                    1.8_28            r36h6115d3f_0    r
+r-mime                    0.6               r36h6115d3f_0    r
+r-modelmetrics            1.2.2             r36h6115d3f_0    r
+r-modelr                  0.1.4             r36h6115d3f_0    r
+r-munsell                 0.5.0             r36h6115d3f_0    r
+r-nlme                    3.1_139           r36h6115d3f_0    r
+r-nnet                    7.3_12            r36h6115d3f_0    r
+r-numderiv                2016.8_1          r36h6115d3f_0    r
+r-openssl                 1.3               r36h6115d3f_0    r
+r-pbdzmq                  0.3_3             r36h6115d3f_0    r
+r-pillar                  1.3.1             r36h6115d3f_0    r
+r-pkgconfig               2.0.2             r36h6115d3f_0    r
+r-plogr                   0.2.0             r36h6115d3f_0    r
+r-plyr                    1.8.4             r36h6115d3f_0    r
+r-prettyunits             1.0.2             r36h6115d3f_0    r
+r-processx                3.3.0             r36h6115d3f_0    r
+r-prodlim                 2018.04.18        r36h6115d3f_0    r
+r-progress                1.2.0             r36h6115d3f_0    r
+r-promises                1.0.1             r36h6115d3f_0    r
+r-ps                      1.3.0             r36h6115d3f_0    r
+r-purrr                   0.3.2             r36h6115d3f_0    r
+r-quantmod                0.4_14            r36h6115d3f_0    r
+r-r6                      2.4.0             r36h6115d3f_0    r
+r-randomforest            4.6_14            r36h6115d3f_0    r
+r-rbokeh                  0.6.3                     r36_0    r
+r-rcolorbrewer            1.1_2             r36h6115d3f_0    r
+r-rcpp                    1.0.1             r36h6115d3f_0    r
+r-rcpproll                0.3.0             r36h6115d3f_0    r
+r-readr                   1.3.1             r36h6115d3f_0    r
+r-readxl                  1.3.1             r36h6115d3f_0    r
+r-recipes                 0.1.5             r36h6115d3f_0    r
+r-recommended             3.6.0                     r36_0    r
+r-rematch                 1.0.1             r36h6115d3f_0    r
+r-repr                    0.19.2            r36h6115d3f_0    r
+r-reprex                  0.2.1             r36h6115d3f_0    r
+r-reshape2                1.4.3             r36h6115d3f_0    r
+r-rlang                   0.3.4             r36h6115d3f_0    r
+r-rmarkdown               1.12              r36h6115d3f_0    r
+r-rpart                   4.1_15            r36h6115d3f_0    r
+r-rstudioapi              0.10              r36h6115d3f_0    r
+r-rvest                   0.3.3             r36h6115d3f_0    r
+r-scales                  1.0.0             r36h6115d3f_0    r
+r-selectr                 0.4_1             r36h6115d3f_0    r
+r-shiny                   1.3.2             r36h6115d3f_0    r
+r-sourcetools             0.1.7             r36h6115d3f_0    r
+r-spatial                 7.3_11            r36h6115d3f_4    r
+r-squarem                 2017.10_1         r36h6115d3f_0    r
+r-stringi                 1.4.3             r36h6115d3f_0    r
+r-stringr                 1.4.0             r36h6115d3f_0    r
+r-survival                2.44_1.1          r36h6115d3f_0    r
+r-sys                     3.2               r36h6115d3f_0    r
+r-tibble                  2.1.1             r36h6115d3f_0    r
+r-tidyr                   0.8.3             r36h6115d3f_0    r
+r-tidyselect              0.2.5             r36h6115d3f_0    r
+r-tidyverse               1.2.1             r36h6115d3f_0    r
+r-timedate                3043.102          r36h6115d3f_0    r
+r-tinytex                 0.12              r36h6115d3f_0    r
+r-ttr                     0.23_4            r36h6115d3f_0    r
+r-utf8                    1.1.4             r36h6115d3f_0    r
+r-uuid                    0.1_2             r36h6115d3f_4    r
+r-viridislite             0.3.0             r36h6115d3f_0    r
+r-whisker                 0.3_2             r36h6115d3f_4    r
+r-withr                   2.1.2             r36h6115d3f_0    r
+r-xfun                    0.6               r36h6115d3f_0    r
+r-xml2                    1.2.0             r36h6115d3f_0    r
+r-xtable                  1.8_4             r36h6115d3f_0    r
+r-xts                     0.11_2            r36h6115d3f_0    r
+r-yaml                    2.2.0             r36h6115d3f_0    r
+r-zoo                     1.8_5             r36h6115d3f_0    r
+regex                     2020.11.13       py38h2bbff1b_0  
+requests                  2.25.1             pyhd3eb1b0_0  
+requests-oauthlib         1.3.0                    pypi_0    pypi
+rope                      0.18.0                     py_0  
+rsa                       4.7                      pypi_0    pypi
+rtree                     0.9.4            py38h21ff451_1  
+ruamel_yaml               0.15.87          py38he774522_1  
+scikit-image              0.17.2           py38h1e1f486_0  
+scikit-learn              0.23.2           py38h47e9c7a_0  
+scipy                     1.5.2            py38h14eb087_0  
+seaborn                   0.11.1             pyhd3eb1b0_0  
+selenium                  3.141.0                  pypi_0    pypi
+send2trash                1.5.0              pyhd3eb1b0_1  
+setuptools                52.0.0           py38haa95532_0  
+simplegeneric             0.8.1                    py38_2  
+singledispatch            3.4.0.3                 py_1001  
+sip                       4.19.13          py38ha925a31_0  
+six                       1.15.0           py38haa95532_0  
+snappy                    1.1.8                h33f27b4_0  
+snowballstemmer           2.1.0              pyhd3eb1b0_0  
+sortedcollections         2.1.0              pyhd3eb1b0_0  
+sortedcontainers          2.3.0              pyhd3eb1b0_0  
+soupsieve                 2.1                pyhd3eb1b0_0  
+sphinx                    3.4.3              pyhd3eb1b0_0  
+sphinxcontrib             1.0                      py38_1  
+sphinxcontrib-applehelp   1.0.2                      py_0  
+sphinxcontrib-devhelp     1.0.2                      py_0  
+sphinxcontrib-htmlhelp    1.0.3                      py_0  
+sphinxcontrib-jsmath      1.0.1                      py_0  
+sphinxcontrib-qthelp      1.0.3                      py_0  
+sphinxcontrib-serializinghtml 1.1.4                      py_0  
+sphinxcontrib-websupport  1.2.4                      py_0  
+spyder                    4.2.0            py38haa95532_0  
+spyder-kernels            1.10.1           py38haa95532_0  
+sqlalchemy                1.3.21           py38h2bbff1b_0  
+sqlite                    3.33.0               h2a8f88b_0  
+statsmodels               0.12.1           py38h2bbff1b_0  
+stdiomask                 0.0.6                    pypi_0    pypi
+sympy                     1.7.1            py38haa95532_0  
+tbb                       2020.3               h74a9793_0  
+tblib                     1.7.0                      py_0  
+tensorboard               2.4.1                    pypi_0    pypi
+tensorboard-plugin-wit    1.8.0                    pypi_0    pypi
+tensorflow                2.4.1                    pypi_0    pypi
+tensorflow-estimator      2.4.0                    pypi_0    pypi
+termcolor                 1.1.0                    pypi_0    pypi
+terminado                 0.9.2            py38haa95532_0  
+testpath                  0.4.4                      py_0  
+threadpoolctl             2.1.0              pyh5ca1d4c_0  
+three-merge               0.1.1              pyhd3eb1b0_0  
+tifffile                  2021.1.14          pyhd3eb1b0_1  
+tk                        8.6.10               he774522_0  
+toml                      0.10.1                     py_0  
+toolz                     0.11.1             pyhd3eb1b0_0  
+tornado                   6.1              py38h2bbff1b_0  
+tqdm                      4.56.0             pyhd3eb1b0_0  
+traitlets                 5.0.5                      py_0  
+typed-ast                 1.4.2            py38h2bbff1b_1  
+typing_extensions         3.7.4.3            pyh06a4308_0  
+ujson                     4.0.2            py38hd77b12b_0  
+unicodecsv                0.14.1                   py38_0  
+urllib3                   1.26.3             pyhd3eb1b0_0  
+vc                        14.2                 h21ff451_1  
+vs2015_runtime            14.27.29016          h5e58377_2  
+watchdog                  0.10.4           py38haa95532_0  
+wcwidth                   0.2.5                      py_0  
+webencodings              0.5.1                    py38_1  
+werkzeug                  1.0.1                      py_0  
+wheel                     0.36.2                   pypi_0    pypi
+widgetsnbextension        3.5.1                    py38_0  
+win_inet_pton             1.1.0            py38haa95532_0  
+win_unicode_console       0.5                      py38_0  
+wincertstore              0.2                      py38_0  
+winpty                    0.4.3                         4  
+wrapt                     1.12.1                   pypi_0    pypi
+xlrd                      2.0.1              pyhd3eb1b0_0  
+xlsxwriter                1.3.7                      py_0  
+xlwings                   0.21.4           py38haa95532_0  
+xlwt                      1.3.0                    py38_0  
+xmltodict                 0.12.0                     py_0  
+xz                        5.2.5                h62dcd97_0  
+yaml                      0.2.5                he774522_0  
+yapf                      0.30.0                     py_0  
+zeromq                    4.3.3                ha925a31_3  
+zfp                       0.5.5                hd77b12b_4  
+zict                      2.0.0                      py_0  
+zipp                      3.4.0              pyhd3eb1b0_0  
+zlib                      1.2.11               h62dcd97_4  
+zope                      1.0                      py38_1  
+zope.event                4.5.0                    py38_0  
+zope.interface            5.2.0            py38h2bbff1b_0  
+zstd                      1.4.5                h04227a9_0  
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Command-mode">Command mode<a class="anchor-link" href="#Command-mode"> </a></h3><p>셀의 테두리가 파란색<br />
+셀 입력창 외부의 아무곳을 누르면 Command mode로 바뀜<br />
+Edit mode에서 Esc를 누르면 Command mode로 바뀜</p>
+<table>
+<thead><tr>
+<th style="text-align:center">단축키</th>
+<th style="text-align:left">설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">m</td>
+<td style="text-align:left">Markdown 입력창으로 변경  </td>
+</tr>
+<tr>
+<td style="text-align:center">y</td>
+<td style="text-align:left">Code 입력창으로 변경 </td>
+</tr>
+<tr>
+<td style="text-align:center">a</td>
+<td style="text-align:left">현재 셀 위에 셀 추가</td>
+</tr>
+<tr>
+<td style="text-align:center">b</td>
+<td style="text-align:left">현재 셀 아래에 셀 추가</td>
+</tr>
+<tr>
+<td style="text-align:center">dd</td>
+<td style="text-align:left">현재 셀 삭제</td>
+</tr>
+<tr>
+<td style="text-align:center">z</td>
+<td style="text-align:left">셀 제거 취소</td>
+</tr>
+<tr>
+<td style="text-align:center">c</td>
+<td style="text-align:left">현재 셀 복사하기</td>
+</tr>
+<tr>
+<td style="text-align:center">shift+v</td>
+<td style="text-align:left">현재 셀 위에 붙여 넣기</td>
+</tr>
+<tr>
+<td style="text-align:center">v</td>
+<td style="text-align:left">현재 셀 아래에 붙여 넣기</td>
+</tr>
+<tr>
+<td style="text-align:center">shift+l</td>
+<td style="text-align:left">줄 번호 표시를 토글</td>
+</tr>
+<tr>
+<td style="text-align:center">p</td>
+<td style="text-align:left">명령 팔레트를 엶</td>
+</tr>
+<tr>
+<td style="text-align:center">h</td>
+<td style="text-align:left">단축키 목록을 표시</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Edit-mode">Edit mode<a class="anchor-link" href="#Edit-mode"> </a></h3><p>셀의 테두리가 녹색<br />
+셀 입력창을 클릭하면 Edit mode로 바뀜 
+Command mode에서 Enter 키를 누르면 Edit mode로 바뀜<br />
+Edit mode에서 셀에 내용을 입력할 수 있음</p>
+<table>
+<thead><tr>
+<th style="text-align:center">단축키</th>
+<th style="text-align:left">설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">ctrl + z</td>
+<td style="text-align:left">undo</td>
+</tr>
+<tr>
+<td style="text-align:center">ctrl + shift + z</td>
+<td style="text-align:left">redo</td>
+</tr>
+<tr>
+<td style="text-align:center">Tab</td>
+<td style="text-align:left">자동 완성</td>
+</tr>
+<tr>
+<td style="text-align:center">shift + Tab</td>
+<td style="text-align:left">툴팁, 변수, 함수의 상태 표시</td>
+</tr>
+<tr>
+<td style="text-align:center">ctrl + shift + -</td>
+<td style="text-align:left">커서의 위치에서 셀을 잘라 두개로 만듦</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#44277;&#50857;-&#45800;&#52629;&#53412;-(&#54788;&#51116;-Notebook&#50640;-&#45824;&#54616;&#50668;)">&#44277;&#50857; &#45800;&#52629;&#53412; (&#54788;&#51116; Notebook&#50640; &#45824;&#54616;&#50668;)<a class="anchor-link" href="#&#44277;&#50857;-&#45800;&#52629;&#53412;-(&#54788;&#51116;-Notebook&#50640;-&#45824;&#54616;&#50668;)"> </a></h3><table>
+<thead><tr>
+<th style="text-align:center">키</th>
+<th style="text-align:left">설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">위 화살표</td>
+<td style="text-align:left">위 셀로 커서 이동</td>
+</tr>
+<tr>
+<td style="text-align:center">아래 화살표</td>
+<td style="text-align:left">아래 셀로 커서 이동</td>
+</tr>
+<tr>
+<td style="text-align:center">ctrl + Enter</td>
+<td style="text-align:left">현재 셀 실행</td>
+</tr>
+<tr>
+<td style="text-align:center">shift + Enter</td>
+<td style="text-align:left">현재 셀 실행하고 다음 셀로</td>
+</tr>
+<tr>
+<td style="text-align:center">alt + Enter</td>
+<td style="text-align:left">현재 셀 실행하고 아래에 셀 생성</td>
+</tr>
+<tr>
+<td style="text-align:center">Cell &gt; Run Cells</td>
+<td style="text-align:left">모든 셀 순서대로 실행</td>
+</tr>
+<tr>
+<td style="text-align:center">Cell &gt; Current Outputs &gt; Clear</td>
+<td style="text-align:left">현재 셀의 출력을 삭제</td>
+</tr>
+<tr>
+<td style="text-align:center">Cell &gt; All Output &gt; Clear</td>
+<td style="text-align:left">모든 셀의 출력을 삭제</td>
+</tr>
+<tr>
+<td style="text-align:center">Kernel &gt; Interrupt</td>
+<td style="text-align:left">실행중인 코드를 강제 종료</td>
+</tr>
+<tr>
+<td style="text-align:center">Kernel &gt; Restart</td>
+<td style="text-align:left">실행중인 코드가 중지되며 커널이 재시작됨</td>
+</tr>
+<tr>
+<td style="text-align:center">Kernel &gt; Restart &amp; Clear Output</td>
+<td style="text-align:left">실행중인 코드가 중지되며 실행 결과도 삭제됨</td>
+</tr>
+<tr>
+<td style="text-align:center">Kernel &gt; Restart &amp; Run All</td>
+<td style="text-align:left">실행중인 코드가 중지되며 실행 결과도 삭제되고 모든 셀이 순서대로 실행됨</td>
+</tr>
+<tr>
+<td style="text-align:center">Kernel &gt; Reconnect</td>
+<td style="text-align:left">인터넷 연결이 끊어졌을 때 연결을 재시도</td>
+</tr>
+<tr>
+<td style="text-align:center">Kernel &gt; Shutdown</td>
+<td style="text-align:left">커널을 종료</td>
+</tr>
+<tr>
+<td style="text-align:center">File &gt; Close and Halt</td>
+<td style="text-align:left">커널을 종료하고 창을 닫음</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="shell-(&#47749;&#47161;-&#54532;&#47212;&#54532;&#53944;)-&#51060;&#50857;">shell (&#47749;&#47161; &#54532;&#47212;&#54532;&#53944;) &#51060;&#50857;<a class="anchor-link" href="#shell-(&#47749;&#47161;-&#54532;&#47212;&#54532;&#53944;)-&#51060;&#50857;"> </a></h3><p>!명령어<br />
+예) !pip install p2j # 패키지 설치</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Markdown-&#47749;&#47161;&#50612;">Markdown &#47749;&#47161;&#50612;<a class="anchor-link" href="#Markdown-&#47749;&#47161;&#50612;"> </a></h2><h3 id="heading">heading<a class="anchor-link" href="#heading"> </a></h3><ul>
+<li># 장</li>
+<li>## 절</li>
+<li>### 관</li>
+<li>#### 조</li>
+<li>##### 항</li>
+<li>###### 호  </li>
+</ul>
+<h3 id="&#51460;&#48148;&#45000;">&#51460;&#48148;&#45000;<a class="anchor-link" href="#&#51460;&#48148;&#45000;"> </a></h3><p>줄이 바뀌지 않는다.
+줄 끝에 빈 칸이 2개면 줄바꿈하고<br />
+새 줄이 시작된다.</p>
+<p>위에 빈 줄이면 새 문단이 시작된다.</p>
+<h3 id="&#54256;&#53944;">&#54256;&#53944;<a class="anchor-link" href="#&#54256;&#53944;"> </a></h3><p>*italic font* : <em>italic font</em><br />
+_italic font_ : <em>italic font</em><br />
+**bold font** : <strong>bold font</strong><br />
+__bold font__ : <strong>bold font</strong><br />
+***bold italic font*** : <strong><em>bold italic font</em></strong><br />
+___bold italic font___ : <strong><em>bold italic font</em></strong></p>
+<p>subscript and superscript H~2~\^1\^ : H~2~^1^<br />
+~~strikethrough~~ : <del>strikethrough</del><br />
+endash -- : --<br />
+emdash --- : ---<br />
+ellipsis ... : ...</p>
+<p>one space : a&nbsp;b<br />
+two spaces : a&nbsp;&nbsp;b<br />
+two spaces : a&nbsp; b<br />
+two spaces : a&ensp;b<br />
+four spaces : a&nbsp;&nbsp;&nbsp;&nbsp;b<br />
+four spaces : a&nbsp; &nbsp; b<br />
+four spaces : a&emsp;b</p>
+<h3 id="&#44032;&#47196;&#51460;">&#44032;&#47196;&#51460;<a class="anchor-link" href="#&#44032;&#47196;&#51460;"> </a></h3><p>horizontal rule (위 아래 빈 줄 필요) *** 또는 ___</p>
+<hr />
+<hr />
+<h3 id="&#51064;&#50857;">&#51064;&#50857;<a class="anchor-link" href="#&#51064;&#50857;"> </a></h3><ul>
+<li>block quoting(위, 아래 빈 줄 필요) &gt;로 시작, 줄바꿈하려면 줄 끝에 빈 칸이 2개<blockquote><p>blah blah block quote blah blah block quote blah blah block quote blah blah block quote blah blah block quote blah blah block quote blah blah block quote blah blah block quote<br />
+blah blah block</p>
+</blockquote>
+</li>
+</ul>
+<blockquote><p>block quote<br />
+block quote</p>
+<blockquote><p>block quote<br />
+block quote</p>
+<blockquote><p>block quote<br />
+block quote</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="&#47785;&#47197;">&#47785;&#47197;<a class="anchor-link" href="#&#47785;&#47197;"> </a></h3><ul>
+<li>unordered list</li>
+<li>item 2<ul>
+<li>sub-item 1</li>
+<li>sub-item 2  <ul>
+<li>sub-sub-item 1  </li>
+<li>sub-sub-item 2</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>ordered list  </li>
+<li>item 2  <ol>
+<li>sub-item 1<br />
+1 sub-item 2  </li>
+</ol>
+<ul>
+<li>sub-item 2  </li>
+</ul>
+</li>
+<li>item 3  <ul>
+<li>sub-item 1  </li>
+<li>sub-item 2  </li>
+</ul>
+</li>
+</ol>
+<h3 id="&#47553;&#53356;&#50752;-&#51060;&#48120;&#51648;">&#47553;&#53356;&#50752; &#51060;&#48120;&#51648;<a class="anchor-link" href="#&#47553;&#53356;&#50752;-&#51060;&#48120;&#51648;"> </a></h3><p>링크 <a href="https://jupyter.org/">Jupyter Notebook</a>  링크 <a href="https://jupyter.org/" title="mouse-over title">Jupyter Notebook</a></p>
+<p>이미지 첨부하기</p>
+<ul>
+<li>drag &amp; drop으로 첨부  </li>
+<li>![동전 1개](coin_1.jpg) : <img src="coin_1.jpg" alt="동전 1개" />  </li>
+</ul>
+<h3 id="&#49688;&#49885;">&#49688;&#49885;<a class="anchor-link" href="#&#49688;&#49885;"> </a></h3><ul>
+<li>in-line 수식(왼쪽 \$ 또는 \&gt;의 오른쪽에 빈 칸 있으면 안됨)  <ul>
+<li>in-line 수식: $P(A|B)=\frac{P(B|A)P(A)}{P(B|A)P(A)+P(B|A^C )P(A^C )}$  </li>
+<li>in-line 수식: $P(A|B)=\frac{P(B|A)P(A)}{P(B|A)P(A)+P(B|A^C )P(A^C )}$   </li>
+</ul>
+</li>
+<li>displayed 수식<br />
+$$P(A|B)=\frac{P(B|A)P(A)}{P(B|A)P(A)+P(B|A^C )P(A^C )}$$  </li>
+</ul>
+<h3 id="&#54364;">&#54364;<a class="anchor-link" href="#&#54364;"> </a></h3><table>
+<thead><tr>
+<th style="text-align:center">Table Header</th>
+<th style="text-align:center">Second Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Table Cell</td>
+<td style="text-align:center">Cell 2</td>
+</tr>
+<tr>
+<td style="text-align:center">Cell 3</td>
+<td style="text-align:center">Cell 4</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>수식을 포함하는 markdown 표 (표의 위, 아래 빈 줄)<br />
+left-justified(regular), centered, right-justified, left-justified columns</li>
+</ul>
+<table>
+<thead><tr>
+<th style="text-align:left">Header</th>
+<th style="text-align:center">Header</th>
+<th style="text-align:right">Header</th>
+<th style="text-align:left">Header</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Cell</td>
+<td style="text-align:center">Cell</td>
+<td style="text-align:right">Cell</td>
+<td style="text-align:left">Cell</td>
+</tr>
+<tr>
+<td style="text-align:left">Cell</td>
+<td style="text-align:center">Cell</td>
+<td style="text-align:right">Cell</td>
+<td style="text-align:left">Cell</td>
+</tr>
+<tr>
+<td style="text-align:left">Cell</td>
+<td style="text-align:center">Cell</td>
+<td style="text-align:right">Cell</td>
+<td style="text-align:left">Cell</td>
+</tr>
+<tr>
+<td style="text-align:left">Cell</td>
+<td style="text-align:center">$x^2$</td>
+<td style="text-align:right">$\int {\sin x} dx$</td>
+<td style="text-align:left">Cell</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>수식을 포함하는 html 표  <table width="600" rules="all" align="center">
+<tr align="center">
+<th width="15%"></th>
+<th width="20%">자료</th>
+<th width="15%">평균</th>
+<th width="15%">분산</th>
+<th width="15%">표준편차</th>
+<th width="20%">특성값</th>
+</tr>
+<tr align="center">
+<td>모집단</td>
+<td>$\xi_1,...,\xi_N$</td>
+<td>$\mu$</td>
+<td>$\sigma^2$</td>
+<td>$\sigma$</td>
+<td>모수</td>
+</tr>
+<tr align="center">
+<td>표본</td>
+<td>$x_1,...,x_n$</td>
+<td>$\bar{x}$</td>
+<td>$s^2$</td>
+<td>$s$</td>
+<td>관측값,추정값</td>
+</tr>
+&lt;/tr&gt;
+<tr align="center">
+<td>무작위표본</td>
+<td>$X_1,...,X_n$</td>
+<td>$\bar{X}$</td>
+<td>$S^2$</td>
+<td>$S$</td>
+<td>통계량,추정량</td>
+</tr>
+</table></li>
+</ul>
+<h3 id="&#53076;&#46300;">&#53076;&#46300;<a class="anchor-link" href="#&#53076;&#46300;"> </a></h3><ul>
+<li>inline code: <code>range(5)</code></li>
+<li>inline code 출력: <code>range(5)</code> is <br />
+*(nbextensions의 Python Markup을 Enable해야 함)</li>
+<li>Using Markdown  <div class="highlight"><pre><span></span><span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;This is block level code&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+</pre></div>
+</li>
+<li>Using Markup Tags<br />
+<code>python
+str = "This is a block level code"
+print(str)
+</code></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#44061;&#52404;">&#44061;&#52404;<a class="anchor-link" href="#&#44061;&#52404;"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#44061;&#52404;">&#44061;&#52404;<a class="anchor-link" href="#&#44061;&#52404;"> </a></h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">]</span>
+<span class="n">mylist</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[1, 2, 3, 4.5]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>list</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hi&quot;</span><span class="p">)</span>     <span class="c1"># Out[] 없음</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Hi
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#44061;&#52404;&#51032;-&#45236;&#50857;(DocString)">&#44061;&#52404;&#51032; &#45236;&#50857;(DocString)<a class="anchor-link" href="#&#44061;&#52404;&#51032;-&#45236;&#50857;(DocString)"> </a></h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>mylist<span class="o">?</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">?</span>mylist
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">my_add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    두 수를 더한다</span>
+<span class="sd">    입력: x, y</span>
+<span class="sd">    출력: x+y</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">my_add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>12
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#54632;&#49688;&#51032;--docstring">&#54632;&#49688;&#51032;  docstring<a class="anchor-link" href="#&#54632;&#49688;&#51032;--docstring"> </a></h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>my_add<span class="o">?</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">?</span>my_add
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#54632;&#49688;&#51032;-&#49548;&#49828;-&#53076;&#46300;">&#54632;&#49688;&#51032; &#49548;&#49828; &#53076;&#46300;<a class="anchor-link" href="#&#54632;&#49688;&#51032;-&#49548;&#49828;-&#53076;&#46300;"> </a></h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>my_add<span class="o">??</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="wildcard(*)&#47196;-&#44061;&#52404;-&#44160;&#49353;&#54616;&#44592;">wildcard(*)&#47196; &#44061;&#52404; &#44160;&#49353;&#54616;&#44592;<a class="anchor-link" href="#wildcard(*)&#47196;-&#44061;&#52404;-&#44160;&#49353;&#54616;&#44592;"> </a></h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">??</span>my_add
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>np.a*<span class="o">?</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Tab-&#53412;&#47484;-&#51060;&#50857;&#54620;-&#51088;&#46041;-&#50756;&#49457;">Tab &#53412;&#47484; &#51060;&#50857;&#54620; &#51088;&#46041; &#50756;&#49457;<a class="anchor-link" href="#Tab-&#53412;&#47484;-&#51060;&#50857;&#54620;-&#51088;&#46041;-&#50756;&#49457;"> </a></h3><blockquote><p>my(Tab)</p>
+<p>mylist.(Tab)</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#48320;&#49688;&#51032;-&#49345;&#53468;">&#48320;&#49688;&#51032; &#49345;&#53468;<a class="anchor-link" href="#&#48320;&#49688;&#51032;-&#49345;&#53468;"> </a></h3><ol>
+<li>변수의 docstring 표시   <ul>
+<li>변수에 ?를 붙여 셀을 실행   </li>
+</ul>
+</li>
+<li>변수의 tooltip 표시   <ul>
+<li>변수를 입력하고 Shift+Tab을 누름</li>
+</ul>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#53076;&#46300;-&#51200;&#51109;">&#53076;&#46300; &#51200;&#51109;<a class="anchor-link" href="#&#53076;&#46300;-&#51200;&#51109;"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#54620;&#44544;&#51012;-&#54252;&#54632;&#54616;&#45716;-Jupyter-notebook-&#51204;&#52404;&#47484;-PDF-&#54028;&#51068;&#47196;-&#51200;&#51109;&#54616;&#44592;">&#54620;&#44544;&#51012; &#54252;&#54632;&#54616;&#45716; Jupyter notebook &#51204;&#52404;&#47484; PDF &#54028;&#51068;&#47196; &#51200;&#51109;&#54616;&#44592;<a class="anchor-link" href="#&#54620;&#44544;&#51012;-&#54252;&#54632;&#54616;&#45716;-Jupyter-notebook-&#51204;&#52404;&#47484;-PDF-&#54028;&#51068;&#47196;-&#51200;&#51109;&#54616;&#44592;"> </a></h3><p>C:\ide\anaconda3\pkgs\nbconvert...\share\jupyter\nbconvert\templates\latex\base.tex.j2 파일에 다음 추가<br />
+&emsp;\usepackage{kotex}<br />
+File...Download as...PDF via LaTeX (.pdf)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Jupyter-notebook-&#51204;&#52404;&#47484;-python-script&#47196;-&#51200;&#51109;&#54616;&#44592;">Jupyter notebook &#51204;&#52404;&#47484; python script&#47196; &#51200;&#51109;&#54616;&#44592;<a class="anchor-link" href="#Jupyter-notebook-&#51204;&#52404;&#47484;-python-script&#47196;-&#51200;&#51109;&#54616;&#44592;"> </a></h3><p>File...Download as...Python (.py)</p>
+<p>Jupyter notebook과 같은 이름으로 다운로드 폴더에 저장됨</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="save-several-cells-as-a-python-script">save several cells as a python script<a class="anchor-link" href="#save-several-cells-as-a-python-script"> </a></h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">save</span> -r -f my_add.py 8-9
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The following commands were written to file `my_add.py`:
+def my_add(x, y):
+    &#34;&#34;&#34;
+    두 수를 더한다
+    입력: x, y
+    출력: x+y
+    &#34;&#34;&#34;
+    return x + y
+print(my_add(5, 7))
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="python-script&#47484;-Jupyter-notebook&#51004;&#47196;-&#48320;&#54872;&#54616;&#44592;">python script&#47484; Jupyter notebook&#51004;&#47196; &#48320;&#54872;&#54616;&#44592;<a class="anchor-link" href="#python-script&#47484;-Jupyter-notebook&#51004;&#47196;-&#48320;&#54872;&#54616;&#44592;"> </a></h3><p>명령프롬프트 창에서</p>
+<p>pip install p2j</p>
+<p>p2j <em>file</em>.py</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="script-file&#51032;-&#51204;&#52404;-&#45236;&#50857;&#51012;-&#54620;-&#49472;&#50640;-&#48520;&#47084;&#50724;&#44592;">script file&#51032; &#51204;&#52404; &#45236;&#50857;&#51012; &#54620; &#49472;&#50640; &#48520;&#47084;&#50724;&#44592;<a class="anchor-link" href="#script-file&#51032;-&#51204;&#52404;-&#45236;&#50857;&#51012;-&#54620;-&#49472;&#50640;-&#48520;&#47084;&#50724;&#44592;"> </a></h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">my_add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    두 수를 더한다</span>
+<span class="sd">    입력: x, y</span>
+<span class="sd">    출력: x+y</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>12
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Jupyter-notebooks&#47484;-&#54633;&#52824;&#44592;">Jupyter notebooks&#47484; &#54633;&#52824;&#44592;<a class="anchor-link" href="#Jupyter-notebooks&#47484;-&#54633;&#52824;&#44592;"> </a></h3><ol>
+<li>첫 셀 입력창 외부 클릭하여 Command mode(파란색 경계선)로 바꾸고 Shift-Down으로 아래 셀들을 선택(또는 처음 셀 입력창 외부 클릭, 마지막 셀 입력창 외부 Shift-Click)하고 Ctrl-C로 복사</li>
+<li>붙여넣을 notebook에 빈 셀을 만들고 입력창 외부 클릭함</li>
+<li>Ctrl-V로 붙여넣음</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#49892;&#54665;">&#49892;&#54665;<a class="anchor-link" href="#&#49892;&#54665;"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#47588;&#51649;-&#47749;&#47161;&#50612;">&#47588;&#51649; &#47749;&#47161;&#50612;<a class="anchor-link" href="#&#47588;&#51649;-&#47749;&#47161;&#50612;"> </a></h3><table>
+<thead><tr>
+<th style="text-align:center">매직 명령어</th>
+<th style="text-align:left">설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">%pwd</td>
+<td style="text-align:left">현재 디렉토리 경로 출력</td>
+</tr>
+<tr>
+<td style="text-align:center">%time 명령어</td>
+<td style="text-align:left">명령어의 실행 시간을 측정하여 표시</td>
+</tr>
+<tr>
+<td style="text-align:center">%timeit 명령어</td>
+<td style="text-align:left">명령어를 여러 번 실행한 결과를 요약하여 표시</td>
+</tr>
+<tr>
+<td style="text-align:center">%ls</td>
+<td style="text-align:left">현재 폴더의 파일 목록을 출력</td>
+</tr>
+<tr>
+<td style="text-align:center">%matplotlib inline</td>
+<td style="text-align:left">코드 셀 바로 아래에 그래프 출력</td>
+</tr>
+<tr>
+<td style="text-align:center">%history -l 3</td>
+<td style="text-align:left">최근 3개의 코드 셀 출력</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#47749;&#47161;&#50612;&#51032;-&#49892;&#54665;-&#49884;&#44036;-&#52769;&#51221;&#54616;&#44592;(&#50668;&#47084;-&#48264;-&#49892;&#54665;&#54616;&#50668;-&#48744;&#46992;&#45912;-&#47751;-&#48264;&#50640;-&#45824;&#54620;-&#54217;&#44512;)">&#47749;&#47161;&#50612;&#51032; &#49892;&#54665; &#49884;&#44036; &#52769;&#51221;&#54616;&#44592;(&#50668;&#47084; &#48264; &#49892;&#54665;&#54616;&#50668; &#48744;&#46992;&#45912; &#47751; &#48264;&#50640; &#45824;&#54620; &#54217;&#44512;)<a class="anchor-link" href="#&#47749;&#47161;&#50612;&#51032;-&#49892;&#54665;-&#49884;&#44036;-&#52769;&#51221;&#54616;&#44592;(&#50668;&#47084;-&#48264;-&#49892;&#54665;&#54616;&#50668;-&#48744;&#46992;&#45912;-&#47751;-&#48264;&#50640;-&#45824;&#54620;-&#54217;&#44512;)"> </a></h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">timeit</span> a = [x*x for x in np.random.randn(10000)]
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>7.9 ms ± 1.19 ms per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">timeit</span> a = np.random.randn(10000); a = a * a
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1.33 ms ± 172 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#49828;&#53356;&#47549;&#53944;-&#54028;&#51068;-&#49892;&#54665;-(automagic&#51060;-&#54876;&#49457;&#54868;-&#46104;&#50612;-&#51080;&#51004;&#47732;-%-&#49373;&#47029;-&#44032;&#45733;)">&#49828;&#53356;&#47549;&#53944; &#54028;&#51068; &#49892;&#54665; (automagic&#51060; &#54876;&#49457;&#54868; &#46104;&#50612; &#51080;&#51004;&#47732; % &#49373;&#47029; &#44032;&#45733;)<a class="anchor-link" href="#&#49828;&#53356;&#47549;&#53944;-&#54028;&#51068;-&#49892;&#54665;-(automagic&#51060;-&#54876;&#49457;&#54868;-&#46104;&#50612;-&#51080;&#51004;&#47732;-%-&#49373;&#47029;-&#44032;&#45733;)"> </a></h3>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>python my_add.py
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>12
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>ipython my_add.py
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>12
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">run</span> my_add.py
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>12
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#50724;&#47448;&#44032;-&#48156;&#49373;&#54620;-&#44221;&#50864;&#50640;-&#49324;&#54980;-&#48516;&#49437;-&#46356;&#48260;&#44613;(pdb)">&#50724;&#47448;&#44032; &#48156;&#49373;&#54620; &#44221;&#50864;&#50640; &#49324;&#54980; &#48516;&#49437; &#46356;&#48260;&#44613;(pdb)<a class="anchor-link" href="#&#50724;&#47448;&#44032;-&#48156;&#49373;&#54620;-&#44221;&#50864;&#50640;-&#49324;&#54980;-&#48516;&#49437;-&#46356;&#48260;&#44613;(pdb)"> </a></h3><p>p 표현식</p>
+<p>q 디버거 종료</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">run</span> error.py
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">c:\ide\notebook\error.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">      6</span> <span class="ansi-green-intense-fg ansi-bold">if</span> __name__ <span class="ansi-yellow-intense-fg ansi-bold">==</span> <span class="ansi-blue-intense-fg ansi-bold">&#34;__main__&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-fg">      7</span>     a<span class="ansi-yellow-intense-fg ansi-bold">,</span> b <span class="ansi-yellow-intense-fg ansi-bold">=</span> <span class="ansi-cyan-intense-fg ansi-bold">3</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-cyan-intense-fg ansi-bold">4</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 8</span><span class="ansi-yellow-intense-fg ansi-bold">     </span>z <span class="ansi-yellow-intense-fg ansi-bold">=</span> my_add<span class="ansi-yellow-intense-fg ansi-bold">(</span>a<span class="ansi-yellow-intense-fg ansi-bold">,</span> b<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">      9</span>     print<span class="ansi-yellow-intense-fg ansi-bold">(</span>z<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-green-intense-fg ansi-bold">c:\ide\notebook\error.py</span> in <span class="ansi-cyan-fg">my_add</span><span class="ansi-blue-intense-fg ansi-bold">(x, y)</span>
+<span class="ansi-green-fg">      1</span> <span class="ansi-green-intense-fg ansi-bold">def</span> my_add<span class="ansi-yellow-intense-fg ansi-bold">(</span>x<span class="ansi-yellow-intense-fg ansi-bold">,</span> y<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-fg">      2</span>     <span class="ansi-blue-intense-fg ansi-bold">&#34;&#34;&#34; 두 수를 더한다 &#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 3</span><span class="ansi-yellow-intense-fg ansi-bold">     </span>out <span class="ansi-yellow-intense-fg ansi-bold">=</span> x <span class="ansi-yellow-intense-fg ansi-bold">+</span> z
+<span class="ansi-green-fg">      4</span>     <span class="ansi-green-intense-fg ansi-bold">return</span> out <span class="ansi-yellow-intense-fg ansi-bold">+</span> y
+<span class="ansi-green-fg">      5</span> 
+
+<span class="ansi-red-intense-fg ansi-bold">NameError</span>: name &#39;z&#39; is not defined</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">debug</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&gt; <span class="ansi-green-intense-fg ansi-bold">c:\ide\notebook\error.py</span>(3)<span class="ansi-cyan-fg">my_add</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      1 </span><span class="ansi-green-intense-fg ansi-bold">def</span> my_add<span class="ansi-yellow-intense-fg ansi-bold">(</span>x<span class="ansi-yellow-intense-fg ansi-bold">,</span> y<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-intense-fg ansi-bold">      2 </span><span class="ansi-yellow-intense-fg ansi-bold">    </span><span class="ansi-blue-intense-fg ansi-bold">&#34;&#34;&#34; 두 수를 더한다 &#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 3 </span><span class="ansi-yellow-intense-fg ansi-bold">    </span>out <span class="ansi-yellow-intense-fg ansi-bold">=</span> x <span class="ansi-yellow-intense-fg ansi-bold">+</span> z
+<span class="ansi-green-intense-fg ansi-bold">      4 </span><span class="ansi-yellow-intense-fg ansi-bold">    </span><span class="ansi-green-intense-fg ansi-bold">return</span> out <span class="ansi-yellow-intense-fg ansi-bold">+</span> y
+<span class="ansi-green-intense-fg ansi-bold">      5 </span>
+
+ipdb&gt; p z
+*** NameError: name &#39;z&#39; is not defined
+ipdb&gt; p y
+4
+ipdb&gt; q
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#49828;&#53356;&#47549;&#53944;&#50640;-&#46356;&#48260;&#44144;(pdb)-&#49892;&#54665;">&#49828;&#53356;&#47549;&#53944;&#50640; &#46356;&#48260;&#44144;(pdb) &#49892;&#54665;<a class="anchor-link" href="#&#49828;&#53356;&#47549;&#53944;&#50640;-&#46356;&#48260;&#44144;(pdb)-&#49892;&#54665;"> </a></h3><p>n 현재 줄 실행하고 다음 줄로</p>
+<p>r 현재 함수가 값을 리턴할 때까지 실행</p>
+<p>p 표현식</p>
+<p>q 디버거 종료</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">run</span> <span class="o">-</span><span class="n">d</span> <span class="n">error</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Breakpoint 1 at c:\ide\notebook\error.py:1
+NOTE: Enter &#39;c&#39; at the ipdb&gt;  prompt to continue execution.
+&gt; <span class="ansi-green-intense-fg ansi-bold">c:\ide\notebook\error.py</span>(1)<span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-red-intense-fg ansi-bold">1</span><span class="ansi-green-intense-fg ansi-bold">---&gt; 1 </span><span class="ansi-green-intense-fg ansi-bold">def</span> my_add<span class="ansi-yellow-intense-fg ansi-bold">(</span>x<span class="ansi-yellow-intense-fg ansi-bold">,</span> y<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-intense-fg ansi-bold">      2 </span><span class="ansi-yellow-intense-fg ansi-bold">    </span><span class="ansi-blue-intense-fg ansi-bold">&#34;&#34;&#34; 두 수를 더한다 &#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">      3 </span><span class="ansi-yellow-intense-fg ansi-bold">    </span>out <span class="ansi-yellow-intense-fg ansi-bold">=</span> x <span class="ansi-yellow-intense-fg ansi-bold">+</span> z
+<span class="ansi-green-intense-fg ansi-bold">      4 </span><span class="ansi-yellow-intense-fg ansi-bold">    </span><span class="ansi-green-intense-fg ansi-bold">return</span> out <span class="ansi-yellow-intense-fg ansi-bold">+</span> y
+<span class="ansi-green-intense-fg ansi-bold">      5 </span>
+
+ipdb&gt; n
+&gt; <span class="ansi-green-intense-fg ansi-bold">c:\ide\notebook\error.py</span>(6)<span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      4 </span><span class="ansi-yellow-intense-fg ansi-bold">    </span><span class="ansi-green-intense-fg ansi-bold">return</span> out <span class="ansi-yellow-intense-fg ansi-bold">+</span> y
+<span class="ansi-green-intense-fg ansi-bold">      5 </span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 6 </span><span class="ansi-green-intense-fg ansi-bold">if</span> __name__ <span class="ansi-yellow-intense-fg ansi-bold">==</span> <span class="ansi-blue-intense-fg ansi-bold">&#34;__main__&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-intense-fg ansi-bold">      7 </span><span class="ansi-yellow-intense-fg ansi-bold">    </span>a<span class="ansi-yellow-intense-fg ansi-bold">,</span> b <span class="ansi-yellow-intense-fg ansi-bold">=</span> <span class="ansi-cyan-intense-fg ansi-bold">3</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-cyan-intense-fg ansi-bold">4</span>
+<span class="ansi-green-intense-fg ansi-bold">      8 </span><span class="ansi-yellow-intense-fg ansi-bold">    </span>z <span class="ansi-yellow-intense-fg ansi-bold">=</span> my_add<span class="ansi-yellow-intense-fg ansi-bold">(</span>a<span class="ansi-yellow-intense-fg ansi-bold">,</span> b<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+ipdb&gt; n
+&gt; <span class="ansi-green-intense-fg ansi-bold">c:\ide\notebook\error.py</span>(7)<span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      5 </span>
+<span class="ansi-green-intense-fg ansi-bold">      6 </span><span class="ansi-green-intense-fg ansi-bold">if</span> __name__ <span class="ansi-yellow-intense-fg ansi-bold">==</span> <span class="ansi-blue-intense-fg ansi-bold">&#34;__main__&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 7 </span><span class="ansi-yellow-intense-fg ansi-bold">    </span>a<span class="ansi-yellow-intense-fg ansi-bold">,</span> b <span class="ansi-yellow-intense-fg ansi-bold">=</span> <span class="ansi-cyan-intense-fg ansi-bold">3</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-cyan-intense-fg ansi-bold">4</span>
+<span class="ansi-green-intense-fg ansi-bold">      8 </span><span class="ansi-yellow-intense-fg ansi-bold">    </span>z <span class="ansi-yellow-intense-fg ansi-bold">=</span> my_add<span class="ansi-yellow-intense-fg ansi-bold">(</span>a<span class="ansi-yellow-intense-fg ansi-bold">,</span> b<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      9 </span><span class="ansi-yellow-intense-fg ansi-bold">    </span>print<span class="ansi-yellow-intense-fg ansi-bold">(</span>z<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+ipdb&gt; n
+&gt; <span class="ansi-green-intense-fg ansi-bold">c:\ide\notebook\error.py</span>(8)<span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      5 </span>
+<span class="ansi-green-intense-fg ansi-bold">      6 </span><span class="ansi-green-intense-fg ansi-bold">if</span> __name__ <span class="ansi-yellow-intense-fg ansi-bold">==</span> <span class="ansi-blue-intense-fg ansi-bold">&#34;__main__&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-intense-fg ansi-bold">      7 </span><span class="ansi-yellow-intense-fg ansi-bold">    </span>a<span class="ansi-yellow-intense-fg ansi-bold">,</span> b <span class="ansi-yellow-intense-fg ansi-bold">=</span> <span class="ansi-cyan-intense-fg ansi-bold">3</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-cyan-intense-fg ansi-bold">4</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 8 </span><span class="ansi-yellow-intense-fg ansi-bold">    </span>z <span class="ansi-yellow-intense-fg ansi-bold">=</span> my_add<span class="ansi-yellow-intense-fg ansi-bold">(</span>a<span class="ansi-yellow-intense-fg ansi-bold">,</span> b<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      9 </span><span class="ansi-yellow-intense-fg ansi-bold">    </span>print<span class="ansi-yellow-intense-fg ansi-bold">(</span>z<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+ipdb&gt; n
+NameError: name &#39;z&#39; is not defined
+&gt; <span class="ansi-green-intense-fg ansi-bold">c:\ide\notebook\error.py</span>(8)<span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      5 </span>
+<span class="ansi-green-intense-fg ansi-bold">      6 </span><span class="ansi-green-intense-fg ansi-bold">if</span> __name__ <span class="ansi-yellow-intense-fg ansi-bold">==</span> <span class="ansi-blue-intense-fg ansi-bold">&#34;__main__&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-intense-fg ansi-bold">      7 </span><span class="ansi-yellow-intense-fg ansi-bold">    </span>a<span class="ansi-yellow-intense-fg ansi-bold">,</span> b <span class="ansi-yellow-intense-fg ansi-bold">=</span> <span class="ansi-cyan-intense-fg ansi-bold">3</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-cyan-intense-fg ansi-bold">4</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 8 </span><span class="ansi-yellow-intense-fg ansi-bold">    </span>z <span class="ansi-yellow-intense-fg ansi-bold">=</span> my_add<span class="ansi-yellow-intense-fg ansi-bold">(</span>a<span class="ansi-yellow-intense-fg ansi-bold">,</span> b<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      9 </span><span class="ansi-yellow-intense-fg ansi-bold">    </span>print<span class="ansi-yellow-intense-fg ansi-bold">(</span>z<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+ipdb&gt; n
+--Return--
+None
+&gt; <span class="ansi-green-intense-fg ansi-bold">c:\ide\notebook\error.py</span>(8)<span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      5 </span>
+<span class="ansi-green-intense-fg ansi-bold">      6 </span><span class="ansi-green-intense-fg ansi-bold">if</span> __name__ <span class="ansi-yellow-intense-fg ansi-bold">==</span> <span class="ansi-blue-intense-fg ansi-bold">&#34;__main__&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-intense-fg ansi-bold">      7 </span><span class="ansi-yellow-intense-fg ansi-bold">    </span>a<span class="ansi-yellow-intense-fg ansi-bold">,</span> b <span class="ansi-yellow-intense-fg ansi-bold">=</span> <span class="ansi-cyan-intense-fg ansi-bold">3</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-cyan-intense-fg ansi-bold">4</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 8 </span><span class="ansi-yellow-intense-fg ansi-bold">    </span>z <span class="ansi-yellow-intense-fg ansi-bold">=</span> my_add<span class="ansi-yellow-intense-fg ansi-bold">(</span>a<span class="ansi-yellow-intense-fg ansi-bold">,</span> b<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      9 </span><span class="ansi-yellow-intense-fg ansi-bold">    </span>print<span class="ansi-yellow-intense-fg ansi-bold">(</span>z<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+ipdb&gt; n
+NameError: name &#39;z&#39; is not defined
+&gt; <span class="ansi-green-intense-fg ansi-bold">c:\ide\anaconda3\lib\site-packages\ipython\utils\py3compat.py</span>(188)<span class="ansi-cyan-fg">execfile</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-intense-fg ansi-bold">    186 </span><span class="ansi-yellow-intense-fg ansi-bold">    </span><span class="ansi-green-intense-fg ansi-bold">with</span> open<span class="ansi-yellow-intense-fg ansi-bold">(</span>fname<span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-blue-intense-fg ansi-bold">&#39;rb&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span> <span class="ansi-green-intense-fg ansi-bold">as</span> f<span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    187 </span><span class="ansi-yellow-intense-fg ansi-bold">        </span>compiler <span class="ansi-yellow-intense-fg ansi-bold">=</span> compiler <span class="ansi-green-intense-fg ansi-bold">or</span> compile
+<span class="ansi-green-intense-fg ansi-bold">--&gt; 188 </span><span class="ansi-yellow-intense-fg ansi-bold">        </span>exec<span class="ansi-yellow-intense-fg ansi-bold">(</span>compiler<span class="ansi-yellow-intense-fg ansi-bold">(</span>f<span class="ansi-yellow-intense-fg ansi-bold">.</span>read<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> fname<span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-blue-intense-fg ansi-bold">&#39;exec&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> glob<span class="ansi-yellow-intense-fg ansi-bold">,</span> loc<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    189 </span>
+<span class="ansi-green-intense-fg ansi-bold">    190 </span><span class="ansi-red-intense-fg ansi-bold"># Refactor print statements in doctests.</span>
+
+ipdb&gt; n
+--Return--
+None
+&gt; <span class="ansi-green-intense-fg ansi-bold">c:\ide\anaconda3\lib\site-packages\ipython\utils\py3compat.py</span>(188)<span class="ansi-cyan-fg">execfile</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-intense-fg ansi-bold">    186 </span><span class="ansi-yellow-intense-fg ansi-bold">    </span><span class="ansi-green-intense-fg ansi-bold">with</span> open<span class="ansi-yellow-intense-fg ansi-bold">(</span>fname<span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-blue-intense-fg ansi-bold">&#39;rb&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span> <span class="ansi-green-intense-fg ansi-bold">as</span> f<span class="ansi-yellow-intense-fg ansi-bold">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    187 </span><span class="ansi-yellow-intense-fg ansi-bold">        </span>compiler <span class="ansi-yellow-intense-fg ansi-bold">=</span> compiler <span class="ansi-green-intense-fg ansi-bold">or</span> compile
+<span class="ansi-green-intense-fg ansi-bold">--&gt; 188 </span><span class="ansi-yellow-intense-fg ansi-bold">        </span>exec<span class="ansi-yellow-intense-fg ansi-bold">(</span>compiler<span class="ansi-yellow-intense-fg ansi-bold">(</span>f<span class="ansi-yellow-intense-fg ansi-bold">.</span>read<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> fname<span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-blue-intense-fg ansi-bold">&#39;exec&#39;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">,</span> glob<span class="ansi-yellow-intense-fg ansi-bold">,</span> loc<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    189 </span>
+<span class="ansi-green-intense-fg ansi-bold">    190 </span><span class="ansi-red-intense-fg ansi-bold"># Refactor print statements in doctests.</span>
+
+ipdb&gt; q
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><a class="u-url" href="/machine-learning/2021/09/16/Jupyter-Notebook-%EC%82%AC%EC%9A%A9%EB%B2%95.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/machine-learning/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/machine-learning/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/machine-learning/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/machine-learning/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/machine-learning/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
