@@ -4,4 +4,4 @@ title: About Me
 permalink: /about/
 ---
 
-![](../images/MomentCamSys_20201227133304_00511003904260.jpg =400x565)
+<img src="../images/MomentCamSys_20201227133304_00511003904260.jpg" alt="zeroth" width="800"/>
